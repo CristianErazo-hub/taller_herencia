@@ -17,7 +17,7 @@ public class Cuenta {
 
     public void consignar(float cantidad) {
         if (cantidad <= 0) {
-            throw new IllegalArgumentException("La cantidad a consignar debe ser mayor que cero.");
+            throw new IllegalArgumentException("La cantidad a consignar a consignar tiene que ser mayor que cero.");
         }
         saldo += cantidad;
         numeroConsignaciones++;
@@ -25,10 +25,10 @@ public class Cuenta {
 
     public void retirar(float cantidad) {
         if (cantidad <= 0) {
-            throw new IllegalArgumentException("La cantidad a retirar debe ser mayor que cero.");
+            throw new IllegalArgumentException("La cantidad a retirar tiene que ser mayor que cero.");
         }
         if (cantidad > saldo) {
-            throw new IllegalArgumentException("No es posible retirar una cantidad superior al saldo actual.");
+            throw new IllegalArgumentException("No es posible retirar una cantidad mayor al saldo actual.");
         }
         saldo -= cantidad;
         numeroRetiros++;
