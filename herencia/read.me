@@ -1,0 +1,48 @@
+# Taller Herencia
+
+# Estructura del ejercicio
+
+- `Cuenta`: clase base con operaciones para el manejo de saldo, consignaciones, retiros, interés y extracto mensual.
+- `CuentaAhorros`: hereda de la clase `Cuenta` y controla el estado activo/inactivo según el saldo.
+- `CuentaCorriente`: hereda de la clase `Cuenta` y permite el manejo de sobregiro.
+- `Main`: clase principal con un ejemplo.
+
+# Diagrama de clases
+
+```mermaid
+classDiagram
+    class Cuenta {
+        #float saldo
+        #int numeroConsignaciones
+        #int numeroRetiros
+        #float tasaAnual
+        #float comisionMensual
+        +Cuenta(float saldo, float tasaAnual)
+        +consignar(float cantidad) void
+        +retirar(float cantidad) void
+        +calcularInteres() void
+        +extractoMensual() void
+        +imprimir() void
+    }
+
+    class CuentaAhorros {
+        -boolean activa
+        +CuentaAhorros(float saldo, float tasaAnual)
+        +consignar(float cantidad) void
+        +retirar(float cantidad) void
+        +extractoMensual() void
+        +imprimir() void
+    }
+
+    class CuentaCorriente {
+        -float sobregiro
+        +CuentaCorriente(float saldo, float tasaAnual)
+        +consignar(float cantidad) void
+        +retirar(float cantidad) void
+        +extractoMensual() void
+        +imprimir() void
+    }
+
+    CuentaAhorros --|> Cuenta
+    CuentaCorriente --|> Cuenta
+```
